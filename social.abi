@@ -1,0 +1,57 @@
+{
+  "structs": [{
+      "name": "post_action",
+      "base": "",
+      "fields": {
+        "author": "account_name",
+        "postid": "post_name",
+        "reply_to_author": "account_name",
+        "reply_to_id": "int32_t",
+        "author": "uint8[]",
+        "data": "char[]"
+      }
+    },{
+      "name": "vote_action",
+      "base": "",
+      "fields": {
+        "voter": "account_name",
+        "author": "account_name",
+        "postid": "post_name",
+        "vote_power": "int32_t"
+      }
+    },{
+      "name": "post_record",
+      "base": "",
+      "fields": {
+        "total_votes": "uint64_t",
+        "claimed_votes": "uint64_t",
+        "created": "uint32_t"
+      }
+    },{
+      "name": "account",
+      "base": "",
+      "fields": {
+        "social": "uint64_t",
+        "social_power": "uint64_t",
+        "vote_power": "int32_t",
+        "last_vote": "uint32_t",
+      }
+    }
+  ],
+  "actions": [{
+      "action_name": "apply_social_post",
+      "type": "apply_social_post"
+    },{
+      "action_name": "apply_social_vote",
+      "type": "apply_social_vote"
+    }
+  ],
+  "tables": [{
+        "table_name": "social",
+        "type": "social",
+        "index_type": "i64",
+        "key_names" : ["authors"],
+        "key_types" : ["account_name"]
+      }
+  ]
+}
